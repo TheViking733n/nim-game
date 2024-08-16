@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 90vw;
+    max-width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    color: #555;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #ccc;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.game-area {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 90vw;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.game-controls {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: column;
+    width: 20%;
+}
+
+.game-controls button {
+    margin-right: 10px;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.game-board {
+    flex: 0.6;
+    margin-right: 20px;
+}
+
+.log-area {
+    flex: 0.4;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.pile {
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.stones {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.stone {
+    width: 20px;
+    height: 20px;
+    background-color: #007bff;
+    border-radius: 50%;
+}
+
+.move-form {
+    margin-top: 20px;
+}
+
+#game-log {
+    font-size: 14px;
+    color: #333;
+}
+
+.move-box {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.move-box div {
+    width: 50%;
+    padding: 10px;
+}
