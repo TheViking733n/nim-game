@@ -56,7 +56,12 @@
                         </div>
                         <div class="select-stones-container">
                             <label for="move-stones">Stones to Remove:</label>
-                            <input type="number" id="move-stones" min="1" value="1">
+                            <span>
+                                <input type="number" id="move-stones" min="1" value="1">
+                                <button onclick="changeStonesInput(1)">+</button>
+                                <button onclick="changeStonesInput(-1)">-</button>
+                            </span>
+                            
                         </div>
                     </div>
                     <button id="move-btn">Remove</button>

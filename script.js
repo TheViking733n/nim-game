@@ -151,3 +151,12 @@ function changeOption(pile) {
     }
     
 }
+
+function changeStonesInput(delta) {
+    let input = document.getElementById("move-stones");
+    let stones = parseInt(input.value) + delta;
+    if (stones < 1) {
+        stones = 1;
+    }
+    input.value = stones;
+}
