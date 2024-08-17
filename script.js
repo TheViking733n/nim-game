@@ -52,23 +52,51 @@ function playerMove() {
     }
 }
 
+function xor() {
+    let result = 0;
+    for (let i = 0; i < piles.length; i++) {
+        result ^= piles[i];
+    }
+    return result;
+}
+
 function computerMove() {
     let moveMade = false;
-
-    for (let i = 0; i < piles.length; i++) {
-        if (piles[i] > 0) {
-            const stonesToRemove = Math.max(piles[i] - (piles[i] ^ piles.reduce((acc, val) => acc ^ val, 0)), 1);
-            piles[i] -= stonesToRemove;
-            logMove("Computer", i + 1, stonesToRemove);
-            saveHistory();
-            updateBoard();
-            moveMade = true;
-            break;
+    let curXor = xor();
+    if (curXor === 0) {
+        // Random move
+        let pileIndex = Math.floor(Math.random() * 3);
+        while (piles[pileIndex] === 0) {
+            pileIndex = Math.floor(Math.random() * 3);
+        }
+        let stonesToRemove = 1;
+        piles[pileIndex] -= stonesToRemove;
+        logMove("Computer", pileIndex + 1, stonesToRemove);
+        saveHistory();
+        updateBoard();
+        moveMade = true;
+    } else {
+        for (let i = 0; i < piles.length; i++) {
+            for (let stonesToRemove = 1; stonesToRemove <= piles[i]; stonesToRemove++) {
+                let nextXor = curXor ^ piles[i] ^ (piles[i] - stonesToRemove);
+                if (nextXor === 0) {
+                    piles[i] -= stonesToRemove;
+                    logMove("Computer", i + 1, stonesToRemove);
+                    saveHistory();
+                    updateBoard();
+                    moveMade = true;
+                    break;
+                }
+            }
         }
     }
 
     if (isGameOver()) {
         log.innerHTML += "<br>Computer wins!";
+    }
+
+    if (!moveMade) {
+        alert("Assertion Failed: Computer could not make a valid move.");
     }
 }
 
